@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'; // this is imported for using Navbar.propTyp
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href='/'>{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,10 @@ export default function Navbar(props) {
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder={props.placeholder} aria-label="Search" />
             <button className="btn btn-outline-primary" type="submit">Search</button>
+            <div className={`form-check form-switch mx-4 toggle-mode-div text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+              <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle</label>
+            </div>
           </form>
         </div>
       </div>
@@ -37,7 +41,7 @@ export default function Navbar(props) {
 //following will make sure that the values passed in the function is string, we can set it to be number, array or object as well,
 //   *NOTICE* that the p of propTypes is small in Navbar.propTypes but it is capital in PropTypes.string
 //  here we also later marked the title to be required so we made it compulsory to pass a value or else it would throw an error
-Navbar.propTypes = { 
+Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
 };
