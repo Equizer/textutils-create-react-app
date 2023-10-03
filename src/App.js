@@ -3,7 +3,8 @@ import './App.css';
 import Navbar from './Components/Navbar.js';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react';
-import Alert from './Components/Alert.js'
+import Alert from './Components/Alert.js';
+import Modal from './Components/Modal.js';
 
 
 function App() {
@@ -19,6 +20,14 @@ function App() {
       setAlert(null);
     }, 2000);
   }
+
+  const customMode = () => {
+    const colorValue = document.getElementsByClassName('color-pallete')[0];
+    document.body.style.backgroundColor = colorValue.value;
+    document.title = 'TextUtils - HOME (Custom Mode)';
+    showAlert('Custom Mode Applied!', 'success');
+  }
+
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
@@ -40,24 +49,14 @@ function App() {
       document.getElementsByClassName('text-area')[0].style.color = 'black';
       showAlert('Light Mode has been enabled!', 'success');
       document.title = 'TextUtils - HOME (Light Mode)';
-
     }
   }
-  const customMode = () => {
-    const colorValue = document.getElementsByClassName('color-pallete')[0];
-    document.body.style.backgroundColor = colorValue.value;
-    document.title = 'TextUtils - HOME (Custom Mode)';
-    setInterval(() => {
-      document.title = 'Customize Your Theme!';
-    }, 2000);
-    setInterval(() => {
-      document.title = 'TextUtils - HOME (Custom Mode)';
-    }, 1500);
-    showAlert('Custom Mode Applied!', 'success');
-  }
+
+
   return (
     <>
-      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} customMode={customMode} />
+      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
+      <Modal customMode={customMode} />
       <Alert alert={alert} />
       <div className="container my-3 mb-5">
         <TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert} />
