@@ -49,11 +49,19 @@ export default function TextForm(props) {
   } 
 
 
+  // function countWords  () {
+  //   if (text === '') {
+  //     return(0);
+  //   }
+  //   return (text.split(' ').length);
+  // }
+
+
   function countWords  () {
     if (text === '') {
-      return(0);
+      return (0);
     }
-    return (text.split(' ').length);
+    return text.split(' ').length;
   }
 
   return (

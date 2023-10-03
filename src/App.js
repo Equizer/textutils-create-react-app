@@ -17,7 +17,7 @@ function App() {
     });
     setTimeout(() => {
       setAlert(null);
-    }, 2000)
+    }, 2000);
   }
   const toggleMode = () => {
     if (mode === 'light') {
@@ -28,6 +28,8 @@ function App() {
       document.getElementsByClassName('text-area')[0].style.backgroundColor = 'rgb(33, 37, 41)';
       document.getElementsByClassName('text-area')[0].style.color = 'white';
       showAlert('Dark Mode has been enabled!', 'success');
+      document.title = 'TextUtils - HOME (Dark Mode)';
+
     }
     else {
       setMode('light');
@@ -37,18 +39,30 @@ function App() {
       document.getElementsByClassName('text-area')[0].style.background = 'white';
       document.getElementsByClassName('text-area')[0].style.color = 'black';
       showAlert('Light Mode has been enabled!', 'success');
+      document.title = 'TextUtils - HOME (Light Mode)';
 
     }
   }
+  const customMode = () => {
+    const colorValue = document.getElementsByClassName('color-pallete')[0];
+    document.body.style.backgroundColor = colorValue.value;
+    document.title = 'TextUtils - HOME (Custom Mode)';
+    setInterval(() => {
+      document.title = 'Customize Your Theme!';
+    }, 2000);
+    setInterval(() => {
+      document.title = 'TextUtils - HOME (Custom Mode)';
+    }, 1500);
+    showAlert('Custom Mode Applied!', 'success');
+  }
   return (
     <>
-      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert}/>
+      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} customMode={customMode} />
+      <Alert alert={alert} />
       <div className="container my-3 mb-5">
-        <TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert}/>
+        <TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert} />
       </div>
       {/* <About/> */}
-
     </>
   );
 }
