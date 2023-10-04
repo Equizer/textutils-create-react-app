@@ -80,8 +80,8 @@ export default function TextForm(props) {
     </div>
     <div className="container">
       <h1>Your Text Summary</h1>
-      <p>{countWords()} words | {text.length} Characters | {}Without Spaces</p>
-      <p>{((text.split(' ').length) / 238).toFixed(2)} Minutes to read</p>
+      <p>{countWords()} words | {text.length} Characters</p>
+      <p>{((text.split(' ').length) / 238).toFixed(2)} minute - Time required to read</p>
       <h3>Preview</h3>
       <p>{text === '' ? 'Enter some text in the textarea to preview' : text}</p>
     </div>    

@@ -1,10 +1,18 @@
 import './App.css';
-// import About from './Components/About';
+import About from './Components/About';
 import Navbar from './Components/Navbar.js';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react';
 import Alert from './Components/Alert.js';
 import Modal from './Components/Modal.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams
+} from "react-router-dom";
+
+
 
 
 function App() {
@@ -55,13 +63,17 @@ function App() {
 
   return (
     <>
-      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
-      <Modal customMode={customMode} />
-      <Alert alert={alert} />
-      <div className="container my-3 mb-5">
-        <TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert} />
-      </div>
-      {/* <About/> */}
+      <Router>
+        <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
+        <Modal customMode={customMode} />
+        <Alert alert={alert} />
+        <div className="container my-3 mb-5">
+          <Routes>
+            <Route exact path="/" element={<TextForm  heading="Enter Text to analyze" mode={mode} showAlert={showAlert}/>} /> {/* Define a route for TextForm */}
+            <Route exact path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
