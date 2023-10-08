@@ -63,17 +63,27 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
-        <Modal customMode={customMode} />
-        <Alert alert={alert} />
-        <div className="container my-3 mb-5">
-          <Routes>
-            <Route exact path="/" element={<TextForm  heading="Enter Text to analyze" mode={mode} showAlert={showAlert}/>} /> {/* Define a route for TextForm */}
-            <Route exact path="/about" element={<About />} />
-          </Routes>
-        </div>
-      </Router>
+      {/* <Router> */}
+        {/* <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} /> */}
+        {/* <Modal customMode={customMode} /> */}
+        {/* <Alert alert={alert} /> */}
+        {/* <div className="container my-3 mb-5"> */}
+          {/* <Routes> */}
+            {/* <Route exact path="/" element={<TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert} />} /> Define a route for TextForm */}
+            {/* <Route exact path="/about" element={<About />} /> */}
+          {/* </Routes> */}
+        {/* </div> */}
+      {/* </Router> */}
+
+      <Navbar title="TextUtils" placeholder="Search" mode={mode} toggleMode={toggleMode} />
+      <Modal customMode={customMode} />
+      <Alert alert={alert} />
+      <div className="container my-3 mb-5">
+        <TextForm heading="Enter Text to analyze" mode={mode} showAlert={showAlert} />
+        <About />
+      </div>
+
+
     </>
   );
 }

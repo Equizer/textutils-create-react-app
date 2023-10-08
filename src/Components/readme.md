@@ -31,3 +31,7 @@ Copy code
 You'll need to update your route definitions accordingly.
 
 With these changes, your React Router configuration should work correctly with version 6. Make sure to update your routes to use the new syntax introduced in React Router version 6.
+
+
+
+*NOTE* we've commented out all router related code becuz it was just for understanding the concept of router and also when we put our project on github and try to deploy it , routing doesnt  work properly with github so we have comment it out
