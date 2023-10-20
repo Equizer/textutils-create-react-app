@@ -10,6 +10,9 @@ export default function Modal(props) {
           <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div className="modal-body">
+          Select a Background-color: <input className="background-color-pallete" type="color" />
+        </div>
+        <div className="modal-body">
           Select a Color: <input className="color-pallete" type="color" />
         </div>
         <div className="modal-footer">

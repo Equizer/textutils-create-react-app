@@ -30,8 +30,10 @@ function App() {
   }
 
   const customMode = () => {
+    const backgroundColorValue = document.getElementsByClassName('background-color-pallete')[0];
     const colorValue = document.getElementsByClassName('color-pallete')[0];
-    document.body.style.backgroundColor = colorValue.value;
+    document.body.style.color = colorValue.value;
+    document.body.style.backgroundColor = backgroundColorValue.value;
     document.title = 'TextUtils - HOME (Custom Mode)';
     showAlert('Custom Mode Applied!', 'success');
   }
